@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]>      <html class="no-js"> <!--<![endif]-->
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>CSS信封弹开特效</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+      body,div,h1,h2,form,fieldset,input,textarea,footer,p{
+        margin: 0;
+        padding: 0;
+        border: 0;
+        outline: none;
+      }
+      body{
+        background-color: #fff;
+        color: black;
+        font-family: tahoma;
+      }
+      p{
+        font-size: 14px;
+      }
+      #wrap{
+        width: 530px;
+        margin: 150px auto 0;
+        /* height: 1000px; */
+      }
+      h1{
+        margin-bottom: 20px;
+        text-align: center;
+        font-size: 35px;
+        font-family: tahoma;
+      }
+      #form-wrap{
+        /* overflow: hidden; */
+        height: 447px;
+        position: relative;
+        top: 0;
+        transition: all 1s ease-in-out .3s;
+      }
+      #form-wrap::before{
+        content: "";
+        position: absolute;
+        bottom: 0px;
+        left: 0;background: url('./xinfeng.png');
+        width: 530px;
+        height: 441px;
+        z-index: 1;
+      }
+      #form-wrap::after{
+        content: "";
+        position: absolute;
+        bottom: 0px;
+        left: 0;
+        background: url('./mask.png') no-repeat;
+        width: 530px;
+        height: 255px;
+        z-index: 3;
+      }
+      #form-wrap.hide::after,
+      #form-wrap.hide::before{
+        display: none;
+      }
+      #form-wrap:hover{
+        /* height: 777px; */
+        /* top: -100px; */
+      }
+      form{
+        background-color: #fff;
+        position: absolute;
+        top: 200px;
+        left: 50%;
+        transform: translateX(-50%);
+        overflow: hidden;
+        height: 200px;
+        width: 400px;
+        margin: 0 auto;
+        padding: 20px;
+        border: 1px solid white;
+        border-right: 3px;
+        transition: all 1s ease-in-out .3s;
+        z-index: 2;
+      }
+      #form-wrap:hover form{
+        height: 430px;
+        top: -100px;
+        box-shadow: 0px 0px 5px rgba(0,0,0,.2);
+        /* z-index: 4; */
+      }
+      #form-wrap:hover::after{
+        /* display: none; */
+      }
+      label{
+        margin: 11px 20px 0 0;
+        font-size: 15px;
+        color: gray;
+        text-transform: uppercase;
+      }
+      input[type=text],textarea{
+        resize:none;
+        font: 14px normal uppercase,arial,serif;
+        background: none;
+        color: dimgray;
+        width: 380px;
+        height: 37px;
+        padding: 0 10px;
+        margin: 0 0 10px 0;
+        border: 1px solid #f8f5f1;
+        border-radius: 5px;
+      }
+      textarea:focus,
+      input[type=text]:focus{
+        background-color: #fff;
+      }
+      #form-wrap input[type=submit]{
+        position: relative;
+        font-family: tahoma;
+        font-size: 24px;
+        color: gray;
+        width: 100%;
+        text-align: center;
+        opacity: 0;
+        background: none;
+        cursor: pointer;
+        border-radius: 3px;
+        transition: opacity .7s ease-in-out 0s;
+        margin-top: 20px;
+      }
+      #form-wrap:hover input[type=submit]{
+        z-index: 1;
+        opacity: 1;
+        transition: opacity .5s ease-in-out 1.3s;
+      }
+    </style>
+  </head>
+  <body>
+    <!--[if lt IE 7]>
+      <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="#">upgrade your browser</a> to improve your experience.</p>
+    <![endif]-->
+    <div id="wrap">
+      <div id="form-wrap">
+        <form>
+          <h1>发送邮件</h1>
+          <p>您好，吴先森</p>
+          <label for="email">你的信息：</label>
+          <textarea name="message" id="message" value="你的信息"></textarea>
+
+          <p>最好，</p>
+          <label for="name">姓名：</label>
+          <input type="text" name="email" value="" id="email">
+          <input type="submit" name="submit" value="现在发送">
+        </form>
+      </div>
+    </div>
+  </body>
+</html>
